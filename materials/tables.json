@@ -1,0 +1,53 @@
+{
+  "columns": {
+    "disclosures.tsv": [
+      "id",
+      "edition",
+      "audience",
+      "context",
+      "text"
+    ],
+    "proposal.tsv": [
+      "id",
+      "stage",
+      "bind",
+      "text"
+    ],
+    "approvals.tsv": [
+      "id",
+      "proposal",
+      "canonical",
+      "scope"
+    ],
+    "sessions.tsv": [
+      "id",
+      "viewers",
+      "phase",
+      "seen",
+      "planned"
+    ]
+  },
+  "references": [
+    [
+      "approvals.tsv",
+      "proposal",
+      "proposal.tsv"
+    ],
+    [
+      "approvals.tsv",
+      "canonical",
+      "disclosures.tsv"
+    ],
+    [
+      "sessions.tsv",
+      "seen",
+      "proposal.tsv"
+    ],
+    [
+      "sessions.tsv",
+      "planned",
+      "proposal.tsv"
+    ]
+  ],
+  "compound_keys": []
+}
