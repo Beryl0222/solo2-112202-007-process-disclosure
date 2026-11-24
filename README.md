@@ -19,3 +19,20 @@ TSV 文件采用 UTF-8，首行为列名。行首 id 是该表的稳定记录号
 python3 pack_check.py
 python3 -m unittest -v
 ```
+
+## 研发编审工具（rdreview）
+
+在资料检查之上做语义编审：识别要素、动作先后、条件与描述强度，判断一组相互
+约束的要素是否在同一份可确认公开记录、同一实施条件下同时出现，并按观众实际
+接触的全部材料核查联合推断。详见 [`rdreview/README.md`](rdreview/README.md)。
+
+```sh
+python3 -I rdreview/demo.py            # 端到端编审故事线（状态写临时目录）
+python3 -I rdreview/cli.py list        # 记录、实施方式分组、批准、观众批次
+python3 -I rdreview/cli.py review S1   # 按观众批次评审（泄密路径与改法）
+python3 -I rdreview/cli.py verify D4   # 验签签名存档后重新判断缺证实施方式
+python3 -I rdreview/cli.py incident S1 # 会后限制扩面：保存所见、冻结、联系批次
+python3 -I rdreview/cli.py trace 低压  # 回查先例出处、许可与不能合并发的来由
+```
+
+编审状态写入 `review_workspace/`（已忽略），资料包始终只读。
